@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Sr. Plantão</title>
+    <meta name="description" content="Controle suas escalas de plantão de forma simples e organizada"/>
+    <meta name="theme-color" content="#1565C0"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" href="/icon-192.png"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta name="apple-mobile-web-app-title" content="Sr. Plantão"/>
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7614768764999229" crossorigin="anonymous"></script>
+    <script type="module" crossorigin src="/assets/index-DGYn53Z3.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-nqMpL4T3.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // PWA Service Worker
+      if('serviceWorker' in navigator){
+        window.addEventListener('load', ()=>{
+          navigator.serviceWorker.register('/sw.js').catch(()=>{});
+        });
+      }
+      // iOS install banner
+      const isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+      const isStandalone = window.navigator.standalone;
+      if(isIos && !isStandalone){
+        setTimeout(()=>{
+          const d = document.createElement('div');
+          d.innerHTML = '<div style="position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#1565C0;color:#fff;padding:12px 20px;border-radius:20px;font-size:13px;font-weight:700;z-index:999;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(0,0,0,0.3);white-space:nowrap;font-family:sans-serif">📱 Toque em <strong style="margin:0 4px">Compartilhar</strong> → <strong>Tela de início</strong><button onclick="this.parentElement.parentElement.remove()" style="background:none;border:none;color:rgba(255,255,255,0.8);font-size:18px;cursor:pointer;margin-left:8px">×</button></div>';
+          document.body.appendChild(d);
+          setTimeout(()=>d.remove(), 8000);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
